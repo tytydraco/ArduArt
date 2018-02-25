@@ -1,4 +1,5 @@
 #import <Arduboy2.h>
+#import "keys.h"
 
 Arduboy2 arduboy;
 
