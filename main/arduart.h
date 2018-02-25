@@ -13,12 +13,18 @@ class ArduArt {
 			LEFT,
 			RIGHT
 		};
-		int8_t coords[3];
-		int8_t TILE_SIZE = 8;
-		int8_t GRID_WIDTH = WIDTH / TILE_SIZE;
-		int8_t GRID_HEIGHT = HEIGHT / TILE_SIZE;
+		int points_size = 0;
+		int coords[20];
+		int TILE_SIZE = 4;
+		int GRID_WIDTH = WIDTH / TILE_SIZE;
+		int GRID_HEIGHT = HEIGHT / TILE_SIZE;
+		int grid_x = coords[0] * TILE_SIZE;
+		int grid_y = coords[1] * TILE_SIZE;
 		
 		void move_me(Dir dir);
+		void keypressed();
+		void draw_cursor();
+		void draw_art();
 };
 
 #endif

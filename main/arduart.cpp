@@ -27,3 +27,17 @@ void ArduArt::move_me(Dir dir) {
 			break;
 	}
 }
+
+void ArduArt::draw_cursor() {
+	arduboy.drawRect(coords[0] * TILE_SIZE, coords[1] * TILE_SIZE, TILE_SIZE, TILE_SIZE, WHITE);
+}
+
+void ArduArt::draw_art() {
+	for (int i = 0; i < points_size; i++) {
+		int px = EEPROM.read(EEPROM_STORAGE_SPACE_START + i);
+		int py = EEPROM.read(EEPROM_STORAGE_SPACE_START + 512 + i);
+		if (px != -1 && py != -1) {
+			arduboy.fillRect(px * TILE_SIZE, py * TILE_SIZE, TILE_SIZE, TILE_SIZE, WHITE);
+		}
+	}
+}
